@@ -40,7 +40,7 @@ export const contactsAPI = createApi({
       query: contact => ({
         url: `contacts/${contact.id}`,
         method: 'PATCH',
-        data: contact,
+        data: contact.values,
       }),
       invalidatesTags: ['Contacts'],
     }),
