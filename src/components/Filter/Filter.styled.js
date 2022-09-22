@@ -13,5 +13,6 @@ font-weight: 500;
 
 export const Input = styled.input`
 width: 200px;
+border-radius: 10px;
 padding: 5px;
 `

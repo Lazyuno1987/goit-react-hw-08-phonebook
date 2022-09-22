@@ -1,0 +1,14 @@
+.navlink{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.rightside{
+    margin-right: 10px;
+ 
+}
+
+.link{
+    text-decoration: none;
+}

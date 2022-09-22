@@ -5,7 +5,7 @@ padding: 5px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 400px;
+width: 600px;
 
 `;
 
@@ -20,4 +20,6 @@ export const Button = styled.button`
 min-width: 100px;
 height: 30px;
 padding: 5px;
+border-radius: 10px;
+margin-left: 10px;
 `;

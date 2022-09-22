@@ -1,23 +1,28 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Form, Label, Input, Button } from './ContactForm.styled';
-import { useAddContactMutation, useGetContactsQuery } from 'redux/contactSlice';
+import {
+  useFetchContactsQuery,
+  useCreacteContactMutation,
+} from 'redux/contacts/contactSlice';
+import { Filter } from 'components/Filter/Filter';
+import { ContactList } from 'components/ContactList/ContactList';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
-  const [createContact] = useAddContactMutation();
-  const { data } = useGetContactsQuery();
-
-  const onSubmitForm = async ({ name, phone }) => {
-    const newContact = { name, phone };
+  const [number, setNumber] = useState('');
+  const [createContact] = useCreacteContactMutation();
+  const { data } = useFetchContactsQuery();
+  const onSubmitForm = async ({ name, number }) => {
+    const newContact = { name, number };
 
     if (
       data.some(contact => contact.name.toLowerCase() === name.toLowerCase())
     ) {
       return alert(`${name} is already in contacts!`);
     }
-    return createContact(newContact);
+
+    return createContact(newContact).unwrap();
   };
 
   function handleInputChange(event) {
@@ -26,7 +31,7 @@ export default function ContactForm() {
       case 'name':
         setName(value);
         break;
-      case 'phone':
+      case 'number':
         setNumber(value);
         break;
       default:
@@ -41,38 +46,44 @@ export default function ContactForm() {
 
   const handelSubmit = event => {
     event.preventDefault();
-    onSubmitForm({ name, phone });
+    onSubmitForm({ name, number });
     reset();
   };
 
   return (
-    <Form onSubmit={handelSubmit}>
-      <Label id={nanoid()} name="name">
-        Name
-        <Input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleInputChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </Label>
-      <Label id={nanoid()}>
-        Number
-        <Input
-          type="tel"
-          name="phone"
-          value={phone}
-          onChange={handleInputChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
+    <>
+      <h1>Phonebook</h1>
+      <Form onSubmit={handelSubmit}>
+        <Label id={nanoid()} name="name">
+          Name
+          <Input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleInputChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </Label>
+        <Label id={nanoid()}>
+          Phone
+          <Input
+            type="tel"
+            name="number"
+            value={number}
+            onChange={handleInputChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </Label>
 
-      <Button type="submit">Add contact</Button>
-    </Form>
+        <Button type="submit">Add contact</Button>
+      </Form>
+      <h2>Contacts</h2>
+      <Filter />
+      {data && <ContactList contacts={data} />}
+    </>
   );
 }

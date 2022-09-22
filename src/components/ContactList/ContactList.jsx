@@ -15,11 +15,17 @@ export const ContactList = ({ contacts }) => {
   };
 
   return (
-    <List>
-      {onFiltr().map(({ name, phone, id }) => {
-        return <ContactItem key={nanoid()} name={name} phone={phone} id={id} />;
-      })}
-    </List>
+    <>
+      {contacts.length > 0 && (
+        <List>
+          {onFiltr().map(({ name, number, id }) => {
+            return (
+              <ContactItem key={nanoid()} name={name} number={number} id={id} />
+            );
+          })}
+        </List>
+      )}
+    </>
   );
 };
 
@@ -27,7 +33,7 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
   ),

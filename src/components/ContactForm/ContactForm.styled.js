@@ -17,11 +17,13 @@ font-weight: 500;
 
 export const Input = styled.input`
 width: 200px;
+border-radius: 10px;
 margin-bottom: 20px;
 padding: 5px;
 `
 
 export const Button = styled.button`
 width: 150px ;
+border-radius: 10px;
 padding: 5px;
 `
