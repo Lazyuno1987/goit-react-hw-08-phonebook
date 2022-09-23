@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useLoginMutation } from 'redux/auth/authAPI';
-import css from './Login.module.css';
+import { Label, Input, Button, Form } from './Login.styled';
 export const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -28,29 +28,29 @@ export const Login = () => {
   }
   return (
     <>
-      <form onSubmit={hanleSubmit} className={css.form}>
-        <label id={nanoid()}>
+      <Form onSubmit={hanleSubmit}>
+        <Label id={nanoid()}>
           Email
-          <input
+          <Input
             type="text"
             name="email"
             value={email}
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label id={nanoid()}>
+        </Label>
+        <Label id={nanoid()}>
           Password
-          <input
+          <Input
             type="text"
             name="password"
             value={password}
             onChange={handleInputChange}
             required
           />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+        </Label>
+        <Button type="submit">Login</Button>
+      </Form>
     </>
   );
 };

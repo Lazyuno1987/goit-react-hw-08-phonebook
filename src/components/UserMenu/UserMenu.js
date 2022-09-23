@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import defaultAvatar from './avatar.png';
 import { useLogoutMutation } from 'redux/auth/authAPI';
 import { getUsername } from 'redux/auth/auth-slice';
+import { Button } from './UserMenu.styled';
+
 const styles = {
   container: {
     display: 'flex',
@@ -27,9 +29,9 @@ export const UserMenu = () => {
     <div style={styles.container}>
       <img src={avatar} alt="" width="32" style={styles.avatar} />
       <span style={styles.name}>Wellcom {name}</span>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <Button type="button" onClick={() => dispatch(logOut())}>
         LogOut
-      </button>
+      </Button>
     </div>
   );
 };

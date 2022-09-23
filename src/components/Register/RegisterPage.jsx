@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import css from './RegisterPage.module.css';
+import { Label, Input, Button, Form } from './RegisterPage.styled'
 import { useRegisterMutation } from '../../redux/auth/authAPI';
 
 export const RegisterPage = () => {
@@ -41,10 +41,10 @@ export const RegisterPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
-      <label id={nanoid()}>
+    <Form onSubmit={handleSubmit} >
+      <Label id={nanoid()}>
         Name
-        <input
+        <Input
           type="text"
           name="name"
           value={name}
@@ -53,29 +53,29 @@ export const RegisterPage = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
-      <label id={nanoid()}>
+      </Label>
+      <Label id={nanoid()}>
         Email
-        <input
+        <Input
           type="email"
           name="email"
           value={email}
           onChange={handleInputChange}
           required
         />
-      </label>
-      <label id={nanoid()} name="password">
+      </Label>
+      <Label id={nanoid()} name="password">
         Password
-        <input
+        <Input
           type="text"
           name="password"
           value={password}
           onChange={handleInputChange}
           required
         />
-      </label>
+      </Label>
 
-      <button type="submit">Register</button>
-    </form>
+      <Button type="submit">Register</Button>
+    </Form>
   );
 };
