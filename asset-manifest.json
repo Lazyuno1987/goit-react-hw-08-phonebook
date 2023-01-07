@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.b685a2d6.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.08ccaac8.js",
-    "static/media/logo.png": "/goit-react-hw-08-phonebook/static/media/logo.565cc45ccaa5d13c5e72.png",
-    "static/media/how-to-format-a-book-900.jpg": "/goit-react-hw-08-phonebook/static/media/how-to-format-a-book-900.0e53a8187c7ad3f832a6.jpg",
-    "static/media/avatar.png": "/goit-react-hw-08-phonebook/static/media/avatar.e44fc4e22a4ce55fbe43.png",
-    "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "static/media/Exit-min.svg": "/goit-react-hw-08-phonebook/static/media/Exit-min.3ba889c029f87ad8c958717af7a1093f.svg",
-    "main.b685a2d6.css.map": "/goit-react-hw-08-phonebook/static/css/main.b685a2d6.css.map",
-    "main.08ccaac8.js.map": "/goit-react-hw-08-phonebook/static/js/main.08ccaac8.js.map"
+    "main.css": "/static/css/main.e819502c.css",
+    "main.js": "/static/js/main.d50e23c3.js",
+    "static/media/logo.png": "/static/media/logo.565cc45ccaa5d13c5e72.png",
+    "static/media/how-to-format-a-book-900.jpg": "/static/media/how-to-format-a-book-900.0e53a8187c7ad3f832a6.jpg",
+    "static/media/avatar.png": "/static/media/avatar.e44fc4e22a4ce55fbe43.png",
+    "index.html": "/index.html",
+    "static/media/Exit-min.svg": "/static/media/Exit-min.3ba889c029f87ad8c958717af7a1093f.svg",
+    "main.e819502c.css.map": "/static/css/main.e819502c.css.map",
+    "main.d50e23c3.js.map": "/static/js/main.d50e23c3.js.map"
   },
   "entrypoints": [
-    "static/css/main.b685a2d6.css",
-    "static/js/main.08ccaac8.js"
+    "static/css/main.e819502c.css",
+    "static/js/main.d50e23c3.js"
   ]
 }
