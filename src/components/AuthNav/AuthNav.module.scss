@@ -1,0 +1,30 @@
+@import '../../assets/styles/media';
+
+.rightside {
+    margin-right: 10px;
+
+}
+ .link {
+color: #545454;
+  
+    font-size: 24px;
+    font-family: 'Dancing Script';
+         text-decoration: none;
+       &:first-child{
+margin-right: 15px;
+       }
+                  @include media-tablet {
+                     font-size: 36px;
+                       margin-right: 35px;
+                       margin-left: 20px;
+                            
+        
+                  }
+        
+ }
+
+
+ 
+ .activeLink{
+     color: #E84A5F;
+ }

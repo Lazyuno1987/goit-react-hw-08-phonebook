@@ -8,7 +8,19 @@
     margin-right: 10px;
  
 }
+.background{
+    background-color: #e7eaf2;
+}
 
 .link{
     text-decoration: none;
+}
+.header {
+    padding-top: 10px;
+   
+     display: flex;
+         justify-content: space-between;
+       align-items: center;
+       /* background-color: white; */
+         border-bottom: 1px solid #2A363B,
 }

@@ -1,0 +1,37 @@
+@import '../../assets/styles/media';
+
+.link {
+    text-align: center;
+align-items: center;
+font-size: 24px;
+
+    // text-align: center;
+    font-family: 'Dancing Script';
+        text-decoration: none;
+       
+       
+ 
+
+}
+
+.text_logo{
+    margin: 0;
+   
+}
+.activeLink {
+    color: #E84A5F;
+}
+
+.logo{
+    width: 80px;
+  
+    @include media-tablet {
+        width: 100px;
+    
+        }
+                 @include media-desktop {
+                     width: 150px;
+        
+                 }
+
+}

@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import { Label, Input, Button, Form } from './RegisterPage.styled'
+import Container from 'components/Container/Container';
+import css from './RegisterPage.module.scss'
 import { useRegisterMutation } from '../../redux/auth/authAPI';
 
 export const RegisterPage = () => {
@@ -10,6 +11,8 @@ export const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  
   const handleInputChange = event => {
     const { name, value } = event.target;
     switch (name) {
@@ -35,17 +38,22 @@ export const RegisterPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    register({ name, email, password }).unwrap();
-
+    register({ name, email, password, id:nanoid() }).unwrap();
     reset();
+
   };
+ 
 
   return (
-    <Form onSubmit={handleSubmit} >
-      <Label id={nanoid()}>
-        Name
-        <Input
+     <div className={css.background}>
+      <Container>
+        
+    <form className={css.form} onSubmit={handleSubmit} >
+     
+        <input
+          className={css.input}
           type="text"
+          placeholder='Name'
           name="name"
           value={name}
           onChange={handleInputChange}
@@ -53,29 +61,34 @@ export const RegisterPage = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Label>
-      <Label id={nanoid()}>
-        Email
-        <Input
+    
+   
+   
+        <input
+          className={css.input}
           type="email"
           name="email"
+          placeholder='Email'
           value={email}
           onChange={handleInputChange}
           required
         />
-      </Label>
-      <Label id={nanoid()} name="password">
-        Password
-        <Input
+   
+     
+        <input
+          className={css.input}
           type="text"
+          placeholder='Password'
           name="password"
           value={password}
           onChange={handleInputChange}
           required
         />
-      </Label>
+   
 
-      <Button type="submit">Register</Button>
-    </Form>
+      <button className={css.button} type="submit">Register</button>
+      </form>
+      </Container>
+       </div>
   );
 };

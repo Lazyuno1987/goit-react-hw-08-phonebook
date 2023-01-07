@@ -3,6 +3,7 @@ import { contactsAPI } from './contacts/contactSlice';
 import { contactsFilterSlice } from './filterSlice';
 import { authAPI } from './auth/authAPI';
 import authReducer from '../redux/auth/auth-slice';
+
 import {
   persistStore,
   persistReducer,
@@ -29,6 +30,7 @@ export const store = configureStore({
     [authAPI.reducerPath]: authAPI.reducer,
     filter: contactsFilterSlice.reducer,
     auth: persistReducer(persistConfig, authReducer),
+   
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

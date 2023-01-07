@@ -3,11 +3,20 @@ import { useDeleteContactsMutation } from 'redux/contacts/contactSlice';
 import { useState } from 'react';
 import Modal from 'components/ModalEdit/Modal';
 import PropTypes from 'prop-types';
+import { RiEditFill } from 'react-icons/ri';
+import { RiDeleteBin5Fill } from 'react-icons/ri';
 
-export const ContactItem = ({ id, number, name }) => {
-  const [onDeleteContact, { isLoading }] = useDeleteContactsMutation();
+
+
+export const ContactItem = ({ id, phone, name }) => {
+  const [onDeleteContact] = useDeleteContactsMutation();
  const [showModal, setShowModal] = useState(false);
   
+  
+
+  
+ 
+
   
   const openModal = (id) => {
     setShowModal(prevState => !prevState)
@@ -16,27 +25,31 @@ export const ContactItem = ({ id, number, name }) => {
     setShowModal(prevState => !prevState)
   }
   return (
-    <>
+   
       <ItemContact>
         <Text>
-          {name}: {number}
+      {name}
+      </Text>
+      <Text>
+      {phone}
         </Text>
         <div>
-           <Button onClick={()=>openModal(id)} type='button'>Edit</Button>
+        <Button onClick={() => openModal(id)} type='button'><i>{<RiEditFill/> }</i></Button>
         <Button onClick={() => onDeleteContact(id).unwrap()} type="button">
-          {isLoading ? 'Processing...' : 'Delete'}
+          <i>{<RiDeleteBin5Fill/> }</i>
+          {/* {isLoading ? 'Processing...' : 'Delete'} */}
         </Button>
        
         </div>
-        {showModal && <Modal id={id} names={name} numbers={number} onClose={onCloseModal} />}
+        {showModal && <Modal id={id} names={name} phones={phone} onClose={onCloseModal} />}
       </ItemContact>
-    </>
+  
   );
 };
 
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   id:PropTypes.string.isRequired,
 };

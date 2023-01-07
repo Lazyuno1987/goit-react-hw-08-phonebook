@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 
 export const ContactList = ({ contacts }) => {
+
   const data = useSelector(state => state.filter.value);
   const normalizedFilter = data.toLowerCase();
 
@@ -18,9 +19,9 @@ export const ContactList = ({ contacts }) => {
     <>
       {contacts.length > 0 && (
         <List>
-          {onFiltr().map(({ name, number, id }) => {
+          {onFiltr().map(({ name, phone, _id }) => {
             return (
-              <ContactItem key={nanoid()} name={name} number={number} id={id} />
+              <ContactItem key={nanoid()} name={name} phone={phone} id={_id} />
             );
           })}
         </List>
@@ -33,7 +34,7 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
   ),

@@ -1,35 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import css from './AuthNav.module.scss'
 
-const styles = {
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
-  },
-  activeLink: {
-    color: '#E84A5F',
-  },
-};
 
 export const AuthNav = () => {
   return (
-    <div>
+    <div className={css.div}>
       <NavLink
         to="/register"
         exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
+        className={css.link}
+        // activeStyle={css.activeLink}
       >
         Register
       </NavLink>
       <NavLink
         to="/login"
         exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
+        className={css.link}
+        // activeStyle={css.activeLink}
       >
         Login
       </NavLink>

@@ -1,37 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
 import defaultAvatar from './avatar.png';
-import { useLogoutMutation } from 'redux/auth/authAPI';
+import {  useLogoutMutation } from 'redux/auth/authAPI';
 import { getUsername } from 'redux/auth/auth-slice';
-import { Button } from './UserMenu.styled';
+import Exit from '../../assets/Exit-min.svg'
+import css from './UserMenu.module.scss'
 
-const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  avatar: {
-    marginRight: 4,
-  },
-  name: {
-    fontWeight: 700,
-    marginRight: 12,
-  },
-};
+
+
+
+
+
+
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(getUsername);
+   
   const [logOut] = useLogoutMutation();
 
+ 
+ 
   const avatar = defaultAvatar;
 
   return (
-    <div style={styles.container}>
-      <img src={avatar} alt="" width="32" style={styles.avatar} />
-      <span style={styles.name}>Wellcom {name}</span>
-      <Button type="button" onClick={() => dispatch(logOut())}>
-        LogOut
-      </Button>
+    <div className= {css.container}>
+      <img src={avatar} alt="" width="32" className= {css.avatar} />
+      <span className={css.name}>Wellcome {name}</span>
+     
+      {/* <button className={css.button} type="button" onClick={() => dispatch(logOut())}> */}
+ <img src={Exit} className={css.exit} alt='exit' onClick={() => dispatch(logOut())} />
+      {/* </button> */}
     </div>
   );
 };
+
+

@@ -5,21 +5,26 @@ padding: 5px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 600px;
+
+background-color:#e7eaf2 ;
+margin-bottom: 5px;
+border-radius: 10px;
+
 
 `;
 
 export const Text = styled.p`
-margin: 0;
-margin-right: 10px;
+font-family: "Dancing Script";
+/* margin: 0;
+margin-right: 10px; */
 
 
 `;
 
 export const Button = styled.button`
-min-width: 100px;
+
 height: 30px;
 padding: 5px;
-border-radius: 10px;
+border-radius: 50px;
 margin-left: 10px;
 `;

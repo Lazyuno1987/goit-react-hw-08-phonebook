@@ -11,11 +11,12 @@ import { nanoid } from 'nanoid';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ onClose, names, numbers, id }) {
+export default function Modal({ onClose, names, phones, id }) {
   const contactId = id;
   const { data } = useFetchContactsQuery();
+
   const [name, setNameNew] = useState(names);
-  const [number, setNumberNew] = useState(numbers);
+  const [phone, setPhoneNew] = useState(phones);
   const [changeContact] = useUpdateContactMutation();
 
   
@@ -23,7 +24,7 @@ export default function Modal({ onClose, names, numbers, id }) {
   const onSubmitForm = contact => {
     const newContact = { contactId, ...contact };
 
-    data.some(contact => contact.name === names && contact.id !== contactId)
+    data?.data?.result.some(contact => contact.name === name && contact._id !== contactId)
       ? alert(`${name} is already in the contact's list.`)
       : changeContact(newContact);
     onClose();
@@ -32,17 +33,17 @@ export default function Modal({ onClose, names, numbers, id }) {
   function handleInputChange({ target }) {
     target.name === 'name'
       ? setNameNew(target.value)
-      : setNumberNew(target.value);
+      : setPhoneNew(target.value);
   }
 
   const reset = () => {
     setNameNew('');
-    setNumberNew('');
+    setPhoneNew('');
   };
 
   const handelSubmit = evt => {
     evt.preventDefault();
-    onSubmitForm({ name, number }, id);
+    onSubmitForm({ name, phone }, id);
     reset();
   };
 
@@ -84,8 +85,8 @@ export default function Modal({ onClose, names, numbers, id }) {
             Phone
             <Input
               type="tel"
-              name="number"
-              value={number}
+              name="phone"
+              value={phone}
               onChange={handleInputChange}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

@@ -1,7 +1,8 @@
-import { nanoid } from 'nanoid';
+
 import { useState } from 'react';
+import Container from 'components/Container/Container';
 import { useLoginMutation } from 'redux/auth/authAPI';
-import { Label, Input, Button, Form } from './Login.styled';
+import css from './Login.module.scss'
 export const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -11,8 +12,10 @@ export const Login = () => {
   const hanleSubmit = ev => {
     ev.preventDefault();
     logIn({ email, password }).unwrap();
+
     setEmail('');
     setPassword('');
+
   };
   function handleInputChange({ target: { name, value } }) {
     switch (name) {
@@ -27,30 +30,33 @@ export const Login = () => {
     }
   }
   return (
-    <>
-      <Form onSubmit={hanleSubmit}>
-        <Label id={nanoid()}>
-          Email
-          <Input
+<div className={css.background}>
+      <Container>
+      <form className={css.form} onSubmit={hanleSubmit}>
+        <input
+          className={css.input}
             type="text"
             name="email"
+             placeholder='Email'
             value={email}
             onChange={handleInputChange}
             required
           />
-        </Label>
-        <Label id={nanoid()}>
-          Password
-          <Input
+     
+        <input
+          className={css.input}
             type="text"
             name="password"
             value={password}
+            placeholder='Password'
             onChange={handleInputChange}
             required
           />
-        </Label>
-        <Button type="submit">Login</Button>
-      </Form>
-    </>
+      
+        <button className={css.button} type="submit">Login</button>
+      </form>
+        </Container>
+       </div>
+   
   );
 };
