@@ -27,8 +27,7 @@ export default function App() {
       <AppBar />
     
       <Routes>
-
-         <Route
+       <Route
           path="register"
           element={
             <PublicRoute restricted>
@@ -45,7 +44,7 @@ export default function App() {
           }
         />
         <Route
-          path="contacts"
+          path="/"
           element={
              <PrivateRoute>
               <ContactForm data={data} />
