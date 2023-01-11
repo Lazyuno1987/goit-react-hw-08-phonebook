@@ -21,7 +21,7 @@ export const Input = styled.input`
   background-color: #e7eaf2;
     opacity: 0.7;
     padding: 10px;
-width: 100%;
+
     font-size: 20px;
     border-radius: 10px;
     border: none;
@@ -33,5 +33,8 @@ width: 100%;
         font-weight: 700;
         font-size: 20px;
 
+    }
+    @media (min-width: 1280px){
+width: 40%;
     }
 `

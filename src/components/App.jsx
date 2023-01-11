@@ -8,7 +8,7 @@ import {  useSelector } from 'react-redux';
 import { getToken } from 'redux/auth/auth-slice';
 import PrivateRoute from './Routes/PrivatRoute';
 import PublicRoute from './Routes/PublicRoute';
-import { useFetchContactsQuery } from 'redux/contacts/contactSlice';
+import { useFetchContactsQuery } from 'redux/contacts/contactApi';
 
 
 
@@ -19,7 +19,7 @@ export default function App() {
 
     useFetchCurrentUserQuery(null, { skip: !token });
      const { data } = useFetchContactsQuery();
- 
+
  
   
   return (

@@ -1,5 +1,5 @@
 import { ItemContact, Text, Button } from './ContactItem.styled';
-import { useDeleteContactsMutation } from 'redux/contacts/contactSlice';
+import { useDeleteContactsMutation } from 'redux/contacts/contactApi';
 import { useState } from 'react';
 import Modal from 'components/ModalEdit/Modal';
 import PropTypes from 'prop-types';
@@ -36,7 +36,7 @@ export const ContactItem = ({ id, phone, name }) => {
         <div>
         <Button onClick={() => openModal(id)} type='button'><i>{<RiEditFill/> }</i></Button>
         <Button onClick={() => onDeleteContact(id).unwrap()} type="button">
-          <i>{<RiDeleteBin5Fill/> }</i>
+          <i>{<RiDeleteBin5Fill /> }</i>
           {/* {isLoading ? 'Processing...' : 'Delete'} */}
         </Button>
        

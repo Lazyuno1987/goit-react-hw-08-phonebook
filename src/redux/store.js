@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactsAPI } from './contacts/contactSlice';
+import { contactsAPI} from './contacts/contactApi';
 import { contactsFilterSlice } from './filterSlice';
 import { authAPI } from './auth/authAPI';
 import authReducer from '../redux/auth/auth-slice';
+// import contactsReducer from './contacts/contactsSlice'
+import contactsReducer from './contacts/contactsSlice'
+
 
 import {
   persistStore,
@@ -24,9 +27,12 @@ const persistConfig = {
   whitelist: ['token'],
 };
 
+
+
 export const store = configureStore({
   reducer: {
-    [contactsAPI.reducerPath]: contactsAPI.reducer,
+    [contactsAPI.reducerPath]:contactsAPI.reducer,
+     contacts:  contactsReducer,
     [authAPI.reducerPath]: authAPI.reducer,
     filter: contactsFilterSlice.reducer,
     auth: persistReducer(persistConfig, authReducer),

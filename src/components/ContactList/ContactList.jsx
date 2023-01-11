@@ -33,9 +33,9 @@ export const ContactList = ({ contacts }) => {
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      phone: PropTypes.string,
+      id: PropTypes.string,
     })
   ),
 };

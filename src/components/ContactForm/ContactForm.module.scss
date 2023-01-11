@@ -7,8 +7,22 @@
     height: 100vh;
     
     background-image: url('../../assets/how-to-format-a-book-900.jpg');
+
+@include media-desktop {
+    background-size: cover;
+    }
+   
 }
 
+
+.form{
+    @include media-tablet {
+           
+        width: 400px;
+            margin-left: auto;
+        }
+    
+}
 .first_title{
     padding-top: 25px;
     margin: 0;
@@ -25,6 +39,7 @@ width: 100%;
     border-radius: 10px;
     border: none;
     margin-bottom: 20px;
+    
 
     &::placeholder {
         color: black;

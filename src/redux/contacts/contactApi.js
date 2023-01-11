@@ -2,6 +2,7 @@
         //baseUrl: `https://hw-nodejs-server.onrender.com/api`,
     // baseUrl: 'https://connections-api.herokuapp.com/',
    //baseUrl: `https://brave-slug-vestments.cyclic.app/`,
+// import { createSlice } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
   
 
@@ -56,6 +57,9 @@ export const contactsAPI = createApi({
   }),
 });
 
+
+
+
 export const {
   useFetchContactsQuery,
   useDeleteContactsMutation,
@@ -63,4 +67,6 @@ export const {
   useUpdateContactMutation,
 } = contactsAPI;
 
-export default contactsAPI.reducer;
+
+
+ export default contactsAPI.reducer;

@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import {
   useUpdateContactMutation,
   useFetchContactsQuery,
-} from 'redux/contacts/contactSlice';
+} from 'redux/contacts/contactApi';
 import { Form, Label, Input, Button } from './Modal.styled';
 import { nanoid } from 'nanoid';
 
@@ -105,6 +105,6 @@ export default function Modal({ onClose, names, phones, id }) {
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   names: PropTypes.string.isRequired,
-  numbers: PropTypes.string.isRequired,
+  phones: PropTypes.string.isRequired,
   id:PropTypes.string.isRequired,
 };
